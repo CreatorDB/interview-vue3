@@ -22,3 +22,10 @@ export const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+router.beforeEach((to, _, next) => {
+  if (to.fullPath === '/') {
+    return next('/test-1');
+  }
+  next();
+});
